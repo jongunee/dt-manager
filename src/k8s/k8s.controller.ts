@@ -6,7 +6,7 @@ export class K8sController {
   constructor(private readonly k8sService: K8sService) {}
 
   @Get()
-  getLs() {
+  getLs(): string {
     return this.k8sService.getLs();
   }
 }

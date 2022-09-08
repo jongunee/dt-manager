@@ -1,14 +1,17 @@
 import { Injectable } from '@nestjs/common';
-const { exec } = require('child_process');
+import { exec } from 'child_process';
 
 @Injectable()
 export class K8sService {
-  getLs() {
+  getLs(): string {
+    var ret = '';
     var process = exec('ls');
     process.stdout.on('data', function (data) {
-      console.log(data.toString()[0]);
+      console.log(data.split('\n')[0].toString());
 
-      return data;
+      ret = data.split('\n')[0].toString();
     });
+    console.log(ret);
+    return ret;
   }
 }
