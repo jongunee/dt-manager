@@ -1,22 +1,22 @@
 import { Injectable } from '@nestjs/common';
-import { exec } from 'child_process';
+import { exec, execSync } from 'child_process';
 
 @Injectable()
 export class K8sService {
   getLs(): string {
-    let ret = 'a';
-    var process = exec('ls');
-    process.stdout.on('data', function (data) {
-      // console.log(data.split('\n')[0].toString());
+    // let ret = 'a';
+    let res = 'a';
+    // const res = execSync('ls').toString();
+    // process.stdout.on('data', function (data) {
+    //   // console.log(data.split('\n')[0].toString());
 
-      ret = data.split('\n')[0].toString();
-      console.log(ret);
-      process.disconnect();
+    //   ret = data.split('\n')[0].toString();
+    //   console.log(ret);
 
-      return ret;
-    });
+    //   return ret;
+    // });
 
-    console.log(`return: ${ret}`);
-    return 'not conn';
+    console.log(`return: ${res}`);
+    return res;
   }
 }
