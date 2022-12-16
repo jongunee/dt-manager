@@ -5,7 +5,7 @@ import { exec, execSync } from 'child_process';
 export class K8sService {
   getLs(): string {
     // let ret = 'a';
-    let res = 'a';
+    const res = 'a';
     // const res = execSync('ls').toString();
     // process.stdout.on('data', function (data) {
     //   // console.log(data.split('\n')[0].toString());
